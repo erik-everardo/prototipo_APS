@@ -1,0 +1,180 @@
+@page
+@model PrototipoAPS.Pages.Dashboard.Horarios
+
+@switch (Model.what)
+{
+    
+    case "alumnos":
+        ViewData["Title"] = "Horario de alumnos";
+        ViewData["header"] = "Horarios / Alumnos";
+        <div class="d-flex p-4 m-4 card dark">
+            <h3>Buscar horario de alumno</h3>
+            <form class="form-inline mt-4 ml-auto mr-auto">
+                <div class="form-group mr-2">
+                    <label for="numero_estudiante">Numero de estudiante</label>
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" id="numero_estudiante" placeholder="Ingresar numero de estudiante">
+                </div>
+                <div class="form-group ml-2">
+                    <a class="btn btn-primary" href='/Dashboard/Horarios?accion=busqueda_alumnos&username=@ViewData["username"]'>Buscar</a>
+                </div>
+            </form>
+            <hr>
+        </div>
+        break;
+    case "busqueda_alumnos":
+        ViewData["Title"] = "Resultado de busqueda - Horario de alumnos";
+        ViewData["header"] = "Horarios / Alumnos";
+        <div class="d-flex p-4 m-4 card dark">
+            <h3>Buscar horario de alumno</h3>
+            <form class="form-inline mt-4 ml-auto mr-auto">
+                <div class="form-group mr-2">
+                    <label for="numero_estudiante">Numero de estudiante</label>
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" id="numero_estudiante" placeholder="Ingresar numero de estudiante">
+                </div>
+                <div class="form-group ml-2">
+                    <a class="btn btn-primary" href="#">Buscar</a>
+                </div>
+            </form>
+        </div>
+
+        <div class="cointaner-table">
+            <table class="table dark">
+                <thead class="thead-light">
+                <tr>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Lunes</th>
+                    <th scope="col">Martes</th>
+                    <th scope="col">Miercoles</th>
+                    <th scope="col">Jueves</th>
+                    <th scope="col">Viernes</th>
+                </tr>
+                </thead>
+                <!--Aqui se agrega las asignutas-->
+                <tbody>
+                <th scope="row"></th>
+                <td></td>
+                <td></td>
+                <td></td>
+                </tbody>
+            </table>
+        </div>
+        break;
+    case "profesores":
+        ViewData["Title"] = "Horario de profesores";
+        ViewData["header"] = "Horarios / Profesores";
+        <div class="d-flex p-4 m-4 card dark">
+            <h3>Buscar horario de profesor</h3>
+            <form class="form-inline mt-4 ml-auto mr-auto">
+                <div class="form-group mr-2">
+                    <label for="numero_profesor">Numero de profesor</label>
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" id="numero_profesor" placeholder="Ingresar numero de profesor">
+                </div>
+                <div class="form-group ml-2">
+                    <a class="btn btn-primary" href='/Dashboard/Horarios?accion=busqueda_profesores&username=@ViewData["username"]'>Buscar</a>
+                </div>
+                  
+            </form>
+            <hr>
+        </div>
+        break;
+    case "busqueda_profesores":
+        ViewData["Title"] = "Resultado de búsqueda - Horario de profesores";
+        ViewData["header"] = "Horarios / Profesores";
+        <div class="d-flex p-4 m-4 card dark">
+            <h3>Buscar horario de profesor</h3>
+            <form class="form-inline mt-4 ml-auto mr-auto">
+                <div class="form-group mr-2">
+                    <label for="numero_profesor">Numero de profesor</label>
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" id="numero_profesor" placeholder="Ingresar numero de profesor">
+                </div>
+                <div class="form-group ml-2">
+                    <a class="btn btn-primary">Buscar</a>
+                </div>
+                  
+            </form>
+            <hr>
+        </div>
+
+        <div class="container-table">
+            <table class="table table-dark">
+                <thead class="thead-light">
+                <tr>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Lunes</th>
+                    <th scope="col">Martes</th>
+                    <th scope="col">Miercoles</th>
+                    <th scope="col">Jueves</th>
+                    <th scope="col">Viernes</th>
+                </tr>
+                </thead>
+                <!--Aqui se agrega las asignutas-->
+                <tbody>
+                <th scope="row"></th>
+                <td></td>
+                <td></td>
+                <td></td>
+                </tbody>
+            </table>
+        </div>
+        break;
+    case "mantenimiento":
+        ViewData["Title"] = "Resultado de búsqueda - Horario de profesores";
+        ViewData["header"] = "Horarios / Limpieza y mantenimiento";
+        <div class="d-flex p-4 m-4 card dark">
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Elija el horario</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>7:00 a.m</option>
+                    <option>12:00 p.m</option>
+                    <option>5:00 p.m</option>
+                </select>
+            </div>
+            
+                      
+            <div class="form-group1">
+                <label for="exampleFormControlSelect2">Elija el lugar</label>
+                <select class="form-control" id="exampleFormControlSelect2">
+                    <option>Cancha</option>
+                    <option>Oficina</option>
+                    <option>Aula</option>
+                </select>
+            </div>
+            
+                      
+                  
+            <div class="form-group">
+                <label for="formGroupExampleInput">Actividades a realizar</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+            </div>
+            
+        </div>
+        
+            
+        <table class="table table-dark table-bordered">
+            <thead>
+            <tr>
+                <th>Lugar aseado</th>
+                <th>Horario</th>
+                <th>Actividades realizadas</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Oficina del director</td>
+                <td>7:00 a.m.</td>
+                <td>Barrer, trapear, sacar basura</td>
+            </tr>
+            </tbody>
+        </table>
+        
+        break;
+            
+}

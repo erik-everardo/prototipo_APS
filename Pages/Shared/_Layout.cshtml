@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - Colegio San Luis</title>
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+            asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+            crossorigin="anonymous"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"/>
+    </environment>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body class="bg-dark text-light">
+<nav class="navbar sticky-top dark">
+    <button class="navbar-toggler" type="button" id="boton_movil_mostrar_barra">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="navbar-brand">Colegio San Luis</div>
+    <div id="header">@ViewData["header"]</div>
+    <ul class="nav">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+                <div class="dropdown-header" id="dropdown_nombre_usuario">
+                    @ViewData["username"]
+                </div>
+                <a class="dropdown-item" href="#">
+                    Perfil
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/Index">Salir</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <button class="btn btn-dark" id="fullscreenButton">
+                <i class="fas fa-expand-alt"></i>
+            </button>
+        </li>
+    </ul>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <!--Barra lateral comienza-->
+        <aside class="col-lg-2 col-md-3 sidebar dark" id="sidebar">
+            
+            <!-- Menus-->
+            <ul class="nav flex-column nav-pills">
+                
+                <!--Altas y bajas maestros -->
+                <li class="nav-item">
+                    <a class="nav-link encabezado-barra-lateral-menus" href="#altas_y_bajas_maestros" data-toggle="collapse">Altas y bajas de maestros</a>
+                    <div class="collapse" id="altas_y_bajas_maestros">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a href='/Dashboard/AltasBajasCambios?accion=registrar_maestro&username=@ViewData["username"]' 
+                                   class="nav-link subelemento">Registrar maestro</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href='/Dashboard/AltasBajasCambios?accion=dar_de_baja_un_maestro&username=@ViewData["username"]' 
+                                   class="nav-link subelemento">Dar de baja un maestro</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                
+                <!--Horarios-->
+                <li class="nav-item">
+                    <a class="nav-link encabezado-barra-lateral-menus" href="#horarios" data-toggle="collapse">Horario</a>
+                    <div class="collapse" id="horarios">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a href='/Dashboard/Horarios?accion=profesores&username=@ViewData["username"]' class="nav-link subelemento">Profesores</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href='/Dashboard/Horarios?accion=alumnos&username=@ViewData["username"]' class="nav-link subelemento">Alumnos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href='/Dashboard/Horarios?accion=mantenimiento&username=@ViewData["username"]' class="nav-link subelemento">Limpieza y mantenimiento</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                
+                <!-- Altas, bajas y cambios -->
+                <li class="nav-item">
+                    <a class="nav-link encabezado-barra-lateral-menus" href="#altas_bajas_cambios" data-toggle="collapse">Altas, bajas y cambios</a>
+                    <div class="collapse" id="altas_bajas_cambios">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link subelemento">Alumnos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link subelemento">Personal administrativo</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link subelemento">Limpieza</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                
+                <!-- Calificaciones -->
+                <li class="nav-item">
+                    <a class="nav-link encabezado-barra-lateral-menus" href="#calificaciones" data-toggle="collapse">Calificaciones</a>
+                    <div class="collapse" id="calificaciones">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link subelemento">Promedios</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link subelemento">Kárdex</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link subelemento">Kárdex</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </li>
+                
+                <!-- Grupos -->
+                <li class="nav-item">
+                    <a class="nav-link encabezado-barra-lateral-menus" href="#grupos" data-toggle="collapse">Grupos</a>
+                    <div class="collapse" id="grupos">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link subelemento">Histórico</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link subelemento">Listas</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                
+                <!-- Incidencias -->
+                <li class="nav-item">
+                    <a class="nav-link encabezado-barra-lateral-menus" href="#">Incidencias</a>
+                </li>
+                
+                
+                <!-- Pago de cuotas -->
+                <li class="nav-item">
+                    <a class="nav-link encabezado-barra-lateral-menus" href="#cuotas" data-toggle="collapse">Pago de cuotas escolares</a>
+                    <div class="collapse" id="cuotas">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link subelemento">Consultar adeudo</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link subelemento">Pagar</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                
+                
+            </ul>
+            
+
+        </aside>
+        <!-- Barra lateral termina-->
+        
+        
+        <!-- Comienza contenido -->
+        <main role="main" class="col-lg-10 col-md-9" id="main-dashboard">
+            @RenderBody()
+        </main>
+    </div>
+</div>
+
+
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </environment>
+<environment exclude="Development">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+            asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+            asp-fallback-test="window.jQuery"
+            crossorigin="anonymous"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+        </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+            asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+            crossorigin="anonymous"
+            integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
+        </script>
+</environment>
+
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="https://kit.fontawesome.com/fde197fc03.js" crossorigin="anonymous"></script>
+<script>
+var fullscreenButton = document.getElementById("fullscreenButton");
+fullscreenButton.onclick = function (ev) { 
+    if(document.fullscreen){
+        document.exitFullscreen();
+        fullscreenButton.innerHTML = '<i class="fas fa-expand-alt"></i>';
+    } else {
+        document.documentElement.requestFullscreen();
+        //changes icon to exit from full screen <i class="fas fa-compress-alt"></i>
+        fullscreenButton.innerHTML = '<i class="fas fa-compress-alt"></i>'
+    }
+    
+ }
+</script>
+
+</body>
+</html>

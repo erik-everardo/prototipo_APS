@@ -1,0 +1,88 @@
+﻿/* Erik */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+
+/* Barra lateral*/
+.sidebar{
+  position: fixed;
+  height: calc(100% - 56px);
+  z-index:100;
+  background-color: #f8f9fa;
+  overflow-y: auto;
+}
+#boton_movil_mostrar_barra{
+  display: none;
+}
+#main-dashboard{
+  margin-left: auto;
+}
+
+.encabezado-barra-lateral-menus{
+  font-size: 1.2em;
+  color: white;
+}
+
+/* Es para los elementos del menu lateral */
+.nav-item > .subelemento{
+  margin-left: 8px;
+}
+
+.grupo{
+  border-radius: 20px;
+  background-color: #f8f9fa;
+  margin:20px;
+  padding:10px;
+}
+
+/* titulo que sale en la barra superior*/
+#header{
+  margin:auto;
+  font-size: 1.15rem;
+}
+.dark{
+  background-color: #1d2124;
+}
