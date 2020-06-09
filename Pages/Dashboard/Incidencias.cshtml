@@ -1,0 +1,48 @@
+@page
+@model PrototipoAPS.Pages.Dashboard.Incidencias
+@{
+    ViewData["Title"] = "Incidencias";
+    ViewData["header"] = "Incidencias";
+}
+<div class="form-group">
+    <label for="exampleFormControlSelect1">Elija el tipo de incidencia</label>
+    <select  class="form-control" id="exampleFormControlSelect1">
+        <option>Golpe</option>
+        <option>Sangrado de nariz</option>
+        <option>Quemadura</option>
+        <option>Esguince</option>
+    </select>
+</div>
+        
+<form>
+    <div class="form-group">
+        <label for="formGroupExampleInput">Describa la incidencia</label>
+        <textarea type="text" class="form-control" id="formGroupExampleInput" placeholder="" rows="5"></textarea>
+    </div>
+        
+    <div class="form-group">
+        <label for="formGroupExampleInput1">Datos del involucrado</label>
+        <input type="text" class="form-control" id="formGroupExampleInput1" placeholder="Nombre">
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Apellidos">
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Matricula">
+    </div>
+</form>
+        
+<table class="table ">
+    <thead>
+    <tr>
+        <th># De incidente</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Matricula</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>Juanito</td>
+        <td>Morales</td>
+        <td>11111</td>
+    </tr>
+    </tbody>
+</table>

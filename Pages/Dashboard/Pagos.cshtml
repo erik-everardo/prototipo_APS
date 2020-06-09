@@ -1,0 +1,143 @@
+@page
+@model PrototipoAPS.Pages.Dashboard.Pagos
+
+@switch (Model.what)
+{
+    case "consultar":
+        <br> <!-- Se separa un poco el contenido del navBar -->
+
+        <label>
+            Consulte sus adeudos con su id de estudiante.
+        </label>
+        <!-- La etiqueta content contiene al formulario en si y un label que describe el funcionamiento del formulario. -->
+
+        <form>
+            <!-- Dentro de la etiqueta form nos encontramos con los campos correspondientes que necesitan ser llenados. -->
+
+            <div class="row">
+                <div class="col">
+                    <!-- ID del estudiante -->
+                    <input type="text" class="form-control" id="id_maestro" placeholder="Ingresar id de estudiante" name="id">
+                </div>
+            </div>
+
+            <br><!-- Espacio entre campos del formulario -->
+
+            <div class="row">
+                <div class="col">
+                    <!-- Este boton busca el id en la base de datos -->
+                    <button type="submit" class="btn btn-success btn-block">Buscar adeudos</button>
+                </div>
+                <div class="col">
+                    <!-- Este boton borra los campos a su valor default -->
+                    <button type="reset" class="btn btn-danger btn-block">Cancelar</button>
+                </div>
+            </div>
+
+        </form>
+        break;
+        case "pagar":
+            <br> <!-- Se separa un poco el contenido del navBar -->
+
+            <label>
+                Realice su pago con su id de estudiante.
+            </label>
+            <!-- La etiqueta content contiene al formulario en si y un label que describe el funcionamiento del formulario. -->
+
+            <form>
+                <!-- Dentro de la etiqueta form nos encontramos con los campos correspondientes que necesitan ser llenados. -->
+
+                <div class="row">
+                    <div class="col">
+                        <!-- ID del estudiante -->
+                        <input type="text" class="form-control" id="id_maestro" placeholder="Ingresar id de estudiante" name="id">
+                    </div>
+                </div>
+
+                <br><!-- Espacio entre campos del formulario -->
+
+                <div class="row">
+                    <div class="col">
+                        <!-- Este boton busca el id en la base de datos -->
+                        <a href='/Dashboard/Pagos?accion=mk_pago&username=@ViewData["username"]' class="btn btn-success btn-block">Pagar</a>
+                    </div>
+                    <div class="col">
+                        <!-- Este boton borra los campos a su valor default -->
+                        <a href="#" class="btn btn-danger btn-block">Cancelar</a>
+                    </div>
+                </div>
+
+            </form>
+            break;
+            case "mk_pago":
+                <content>
+        <br> <!-- Se separa un poco el contenido del navBar -->
+
+        <label>
+          Ingrese los datos de su tarjeta.
+        </label>
+        <!-- La etiqueta content contiene al formulario en si y un label que describe el funcionamiento del formulario. -->
+
+        <form>
+          <!-- Dentro de la etiqueta form nos encontramos con los campos correspondientes que necesitan ser llenados. -->
+
+          <div class="row">
+            <div class="col">
+              <!-- Nombre del titular de la tarjeta -->
+              <input type="text" class="form-control" id="nom_tarjeta" placeholder="Ingresar el nombre del titular de la tarjeta" name="nombre">
+            </div>
+            <div class="col">
+              <!-- Numero de la Tarjeta -->
+              <input type="text" class="form-control" id="num_tarjeta" placeholder="Ingrese los 16 digitos de su tarjeta" name="id">
+            </div>  </div>
+		<!-- Vencimiento-->
+		    <div class="row">
+			  <div class="col">
+              <input type="text" class="form-control" id="ven_tarjeta" placeholder="Ingrese la fecha de vencimiento" name="id">
+            </div>
+			 <div class="col">
+              <!-- Numeros de verificacion-->
+              <input type="text" class="form-control" id="num_verif" placeholder="Ingrese los numeros de verificacion" name="id">
+            </div>
+          </div>
+          <br><!-- Espacio entre campos del formulario -->
+
+          <div class="row">
+            <div class="col">
+              <!-- Este boton da de baja a un docente de la base de datos -->
+              <button type="submit" class="btn btn-danger btn-block">Total: $$$$</button>
+            </div>
+            <div class="col">
+              <!-- Este boton reinicia los campos a su valor default -->
+              <button type="reset" class="btn btn-success btn-block">Realizar Pago</button>
+            </div>
+          </div>
+
+        </form>
+      </content>
+
+      <br><!-- Espacio entre campos del formulario -->
+
+      <a>Lista de Adeudos a Pagar</a>
+                <ul class="list-group">
+                    <!-- Esta es una lista de los docentes que se enceuntran registrados en la base de datos con su respectivo ID -->
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Adeudo 1
+                        <span class="badge badge-primary badge-pill badge-info">$$$</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Adeudo 2
+                        <span class="badge badge-primary badge-pill badge-info">$$$</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Adeudo 3
+                        <span class="badge badge-primary badge-pill badge-info">$$$$</span>
+                    </li>
+                    
+ 
+                    
+                </ul>
+                
+                break;
+}
+

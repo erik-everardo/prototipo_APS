@@ -1,0 +1,400 @@
+@page
+@model PrototipoAPS.Pages.Dashboard.Grupos
+
+@switch (Model.what)
+{
+    case "historico":
+      ViewData["Title"] = "Grupos";
+      ViewData["header"] = "Grupos / Histórico";
+      <content>
+        <br> <!-- Se separa un poco el contenido del navBar -->
+
+        <h1 style="border-bottom: solid 4px black; text-align: center; padding-bottom: 4px;">Historico de Grupos</h1>
+        <br>
+        <!-- La etiqueta content contiene al formulario en si y un label que describe el funcionamiento del formulario. -->
+
+        <form>
+          <!-- Dentro de la etiqueta form nos encontramos con los campos correspondientes que necesitan ser llenados. -->
+
+          <div class="row">
+            <div class="col">
+              <!-- Nombre del alumno -->
+              <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar Grupo" name="nombre">
+            </div>
+            <div class="col">
+              <!-- ID del alumno -->
+              <input type="text" class="form-control" id="id_maestro" placeholder="Ingresar id del grupo" name="id">
+            </div>
+          </div>
+
+          <br><!-- Espacio entre campos del formulario -->
+
+          <div class="row">
+            <div class="col">
+              <!-- Este boton da de baja a un alumno de la base de datos -->
+              <button type="submit" class="btn btn-primary btn-block">Buscar Grupo</button>
+            </div>
+          </div>
+
+        </form>
+      </content>
+      
+      <br><!-- Espacio entre campos del formulario -->
+
+      <h4 style="text-align: center;">Grupos listados.</h4>
+      <div id="accordion">
+        <div class="card bg-dark text-light">
+          <div class="card-header">
+            <a class="card-link btn btn-block" data-toggle="collapse" href="#collapseOne">
+              Grupo 1-A
+              <span class="badge badge-primary badge-pill badge-info">ID: 0</span>
+            </a>
+          </div>
+          <div id="collapseOne" class="collapse" data-parent="#accordion">
+            <div class="card-body">
+              <h5 style="text-align: center;">Lista de alumnos</h5>
+              <form>
+                <div class="row">
+                  <div class="col">
+                    <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar Nombre" name="nombre">
+                  </div>
+                  <div class="col">
+                    <!-- Apellido paterno del alumno -->
+                    <input type="text" class="form-control" id="paterno_maestro" placeholder="Ingresar Apellido Paterno" name="paterno">
+                  </div>
+                  <div class="col">
+                    <!-- Apellido materno del alumno -->
+                    <input type="text" class="form-control" id="materno_maestro" placeholder="Ingresar Apellido Materno" name="materno">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <button type="button" class="col btn btn-outline-info">Buscar Alumno</button>
+                </div>
+                <br>
+                <h5 style="text-align: center;">Alumnos del grupo</h5>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item dark">
+                    Alumno 1: Nombres Apellido_paterno Apellido_materno
+                  </li>
+                  <li class="list-group-item dark">
+                    Alumno 2: Nombres Apellido_paterno Apellido_materno
+                  </li>
+                  <li class="list-group-item dark">
+                    Alumno 3: Nombres Apellido_paterno Apellido_materno
+                  </li>
+                  <li class="list-group-item dark">
+                    Alumno 4: Nombres Apellido_paterno Apellido_materno
+                  </li>
+                </ul>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card bg-dark text-light">
+          <div class="card-header">
+            <a class="card-link btn btn-block" data-toggle="collapse" href="#collapseTwo">
+              Grupo 2-A
+              <span class="badge badge-primary badge-pill badge-info">ID: 0</span>
+            </a>
+          </div>
+          <div id="collapseTwo" class="collapse" data-parent="#accordion">
+            <div class="card-body">
+              <h5 style="text-align: center;">Lista de alumnos</h5>
+              <form>
+                <div class="row">
+                  <div class="col">
+                    <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar Nombre" name="nombre">
+                  </div>
+                  <div class="col">
+                    <!-- Apellido paterno del alumno -->
+                    <input type="text" class="form-control" id="paterno_maestro" placeholder="Ingresar Apellido Paterno" name="paterno">
+                  </div>
+                  <div class="col">
+                    <!-- Apellido materno del alumno -->
+                    <input type="text" class="form-control" id="materno_maestro" placeholder="Ingresar Apellido Materno" name="materno">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <button type="button" class="col btn btn-outline-info">Buscar Alumno</button>
+                </div>
+                <br>
+                <h5 style="text-align: center;">Alumnos del grupo</h5>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item dark">
+                    Alumno 1: Nombres Apellido_paterno Apellido_materno
+                  </li>
+                  <li class="list-group-item dark">
+                    Alumno 2: Nombres Apellido_paterno Apellido_materno
+                  </li>
+                  <li class="list-group-item dark">
+                    Alumno 3: Nombres Apellido_paterno Apellido_materno
+                  </li>
+                  <li class="list-group-item dark">
+                    Alumno 4: Nombres Apellido_paterno Apellido_materno
+                  </li>
+                </ul>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card bg-dark text-light">
+          <div class="card-header">
+            <a class="card-link btn btn-block" data-toggle="collapse" href="#collapseTree">
+              Grupo 3-A
+              <span class="badge badge-primary badge-pill badge-info">ID: 0</span>
+            </a>
+          </div>
+          <div id="collapseTree" class="collapse" data-parent="#accordion">
+            <div class="card-body">
+              <h5 style="text-align: center;">Lista de alumnos</h5>
+              <form>
+                <div class="row">
+                  <div class="col">
+                    <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar Nombre" name="nombre">
+                  </div>
+                  <div class="col">
+                    <!-- Apellido paterno del alumno -->
+                    <input type="text" class="form-control" id="paterno_maestro" placeholder="Ingresar Apellido Paterno" name="paterno">
+                  </div>
+                  <div class="col">
+                    <!-- Apellido materno del alumno -->
+                    <input type="text" class="form-control" id="materno_maestro" placeholder="Ingresar Apellido Materno" name="materno">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <button type="button" class="col btn btn-outline-info">Buscar Alumno</button>
+                </div>
+                <br>
+                <h5 style="text-align: center;">Alumnos del grupo</h5>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item dark">
+                    Alumno 1: Nombres Apellido_paterno Apellido_materno
+                  </li>
+                  <li class="list-group-item dark">
+                    Alumno 2: Nombres Apellido_paterno Apellido_materno
+                  </li>
+                  <li class="list-group-item dark">
+                    Alumno 3: Nombres Apellido_paterno Apellido_materno
+                  </li>
+                  <li class="list-group-item dark">
+                    Alumno 4: Nombres Apellido_paterno Apellido_materno
+                  </li>
+                </ul>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+	
+      break;
+  case "listas":
+    ViewData["Title"] = "Grupos";
+    ViewData["header"] = "Grupos / Listas";
+          
+      <content>
+        <br> <!-- Se separa un poco el contenido del navBar -->
+
+        <h1 style="border-bottom: solid 4px black; text-align: center; padding-bottom: 4px;">Lista de Grupos</h1>
+        <br>
+        <!-- La etiqueta content contiene al formulario en si y un label que describe el funcionamiento del formulario. -->
+
+        <form>
+          <!-- Dentro de la etiqueta form nos encontramos con los campos correspondientes que necesitan ser llenados. -->
+
+          <div class="row">
+            <div class="col">
+              <!-- Nombre del alumno -->
+              <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar Grupo" name="nombre">
+            </div>
+            <div class="col">
+              <!-- ID del alumno -->
+              <input type="text" class="form-control" id="id_maestro" placeholder="Ingresar id del grupo" name="id">
+            </div>
+          </div>
+
+          <br><!-- Espacio entre campos del formulario -->
+
+          <div class="row">
+            <div class="col">
+              <!-- Este boton da de baja a un alumno de la base de datos -->
+              <button type="submit" class="btn btn-primary btn-block">Buscar Grupo</button>
+            </div>
+          </div>
+
+        </form>
+      </content>
+
+      <br><!-- Espacio entre campos del formulario -->
+
+      <h4 style="text-align: center;">Grupos listados.</h4>
+
+      <div id="accordion">
+
+       <div class="card bg-dark text-light">
+         <div class="card-header">
+           <a class="card-link btn btn-block" data-toggle="collapse" href="#collapseOne">
+             Grupo 1-A
+             <span class="badge badge-primary badge-pill badge-info">ID: 0</span>
+           </a>
+         </div>
+         <div id="collapseOne" class="collapse" data-parent="#accordion">
+           <div class="card-body">
+             <h5 style="text-align: center;">Lista de alumnos</h5>
+             <form>
+               <div class="row">
+                 <div class="col">
+                   <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar Nombre" name="nombre">
+                 </div>
+                 <div class="col">
+                   <!-- Apellido paterno del alumno -->
+                   <input type="text" class="form-control" id="paterno_maestro" placeholder="Ingresar Apellido Paterno" name="paterno">
+                 </div>
+                 <div class="col">
+                   <!-- Apellido materno del alumno -->
+                   <input type="text" class="form-control" id="materno_maestro" placeholder="Ingresar Apellido Materno" name="materno">
+                 </div>
+               </div>
+               <br>
+               <div class="row">
+                 <button type="button" class="col btn btn-outline-info">Buscar Alumno</button>
+               </div>
+               <br>
+               <h5 style="text-align: center;">Alumnos del grupo</h5>
+               <ul class="list-group list-group-flush">
+                <li class="list-group-item dark">
+                  Alumno 1: Nombres Apellido_paterno Apellido_materno
+                </li>
+                <li class="list-group-item dark">
+                  Alumno 2: Nombres Apellido_paterno Apellido_materno
+                </li>
+                <li class="list-group-item dark">
+                  Alumno 3: Nombres Apellido_paterno Apellido_materno
+                </li>
+                <li class="list-group-item dark">
+                  Alumno 4: Nombres Apellido_paterno Apellido_materno
+                </li>
+               </ul>
+             </form>
+           </div>
+         </div>
+       </div>
+
+       <div class="card bg-dark text-light">
+         <div class="card-header">
+           <a class="card-link btn btn-block" data-toggle="collapse" href="#collapseTwo">
+             Grupo 2-A
+             <span class="badge badge-primary badge-pill badge-info">ID: 0</span>
+           </a>
+         </div>
+         <div id="collapseTwo" class="collapse" data-parent="#accordion">
+           <div class="card-body">
+             <h5 style="text-align: center;">Lista de alumnos</h5>
+             <form>
+               <div class="row">
+                 <div class="col">
+                   <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar Nombre" name="nombre">
+                 </div>
+                 <div class="col">
+                   <!-- Apellido paterno del alumno -->
+                   <input type="text" class="form-control" id="paterno_maestro" placeholder="Ingresar Apellido Paterno" name="paterno">
+                 </div>
+                 <div class="col">
+                   <!-- Apellido materno del alumno -->
+                   <input type="text" class="form-control" id="materno_maestro" placeholder="Ingresar Apellido Materno" name="materno">
+                 </div>
+               </div>
+               <br>
+               <div class="row">
+                 <button type="button" class="col btn btn-outline-info">Buscar Alumno</button>
+               </div>
+               <br>
+               <h5 style="text-align: center;">Alumnos del grupo</h5>
+               <ul class="list-group list-group-flush">
+                <li class="list-group-item dark">
+                  Alumno 1: Nombres Apellido_paterno Apellido_materno
+                </li>
+                <li class="list-group-item dark">
+                  Alumno 2: Nombres Apellido_paterno Apellido_materno
+                </li>
+                <li class="list-group-item dark">
+                  Alumno 3: Nombres Apellido_paterno Apellido_materno
+                </li>
+                <li class="list-group-item dark">
+                  Alumno 4: Nombres Apellido_paterno Apellido_materno
+                </li>
+               </ul>
+             </form>
+           </div>
+         </div>
+       </div>
+
+      <div class="card bg-dark text-light">
+        <div class="card-header">
+          <a class="card-link btn btn-block" data-toggle="collapse" href="#collapseTree">
+            Grupo 3-A
+            <span class="badge badge-primary badge-pill badge-info">ID: 0</span>
+          </a>
+        </div>
+        <div id="collapseTree" class="collapse" data-parent="#accordion">
+          <div class="card-body">
+            <h5 style="text-align: center;">Lista de alumnos</h5>
+            <form>
+              <div class="row">
+                <div class="col">
+                  <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar Nombre" name="nombre">
+                </div>
+                <div class="col">
+                  <!-- Apellido paterno del alumno -->
+                  <input type="text" class="form-control" id="paterno_maestro" placeholder="Ingresar Apellido Paterno" name="paterno">
+                </div>
+                <div class="col">
+                  <!-- Apellido materno del alumno -->
+                  <input type="text" class="form-control" id="materno_maestro" placeholder="Ingresar Apellido Materno" name="materno">
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <button type="button" class="col btn btn-outline-info">Buscar Alumno</button>
+              </div>
+              <br>
+              <h5 style="text-align: center;">Alumnos del grupo</h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item dark">
+                  Alumno 1: Nombres Apellido_paterno Apellido_materno
+                </li>
+                <li class="list-group-item dark">
+                  Alumno 2: Nombres Apellido_paterno Apellido_materno
+                </li>
+                <li class="list-group-item dark">
+                  Alumno 3: Nombres Apellido_paterno Apellido_materno
+                </li>
+                <li class="list-group-item dark">
+                  Alumno 4: Nombres Apellido_paterno Apellido_materno
+                </li>
+              </ul>
+            </form>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <br><!-- Espacio entre campos del formulario -->
+
+      <ul class="pagination justify-content-center">
+        <!-- Control de paginacion de la lista -->
+       <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+       <li class="page-item active"><a class="page-link" href="#">1</a></li>
+       <li class="page-item"><a class="page-link" href="#">2</a></li>
+       <li class="page-item"><a class="page-link" href="#">3</a></li>
+       <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+     </ul>
+
+    break;
+            
+}

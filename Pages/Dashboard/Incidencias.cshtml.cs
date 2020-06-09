@@ -2,13 +2,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace PrototipoAPS.Pages.Dashboard
 {
-    public class AltasBajasCambios : PageModel
+    public class Incidencias : PageModel
     {
-        public string what;
-        public void OnGet(string accion, string username)
+        public void OnGet(string username)
         {
             ViewData["username"] = username;
-            what = accion;
         }
     }
 }

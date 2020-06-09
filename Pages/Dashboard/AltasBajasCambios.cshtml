@@ -3,34 +3,104 @@
 
 @switch (Model.what)
 {
-    case "registrar_maestro":
-    {
-      ViewData["Title"] = "Registrar maestro";
-      ViewData["header"] = "Altas, bajas y cambios / Registrar maestro";
-      <!-- Contenido del formulario del modulo de altas y bajas de maestros. -->
-      <content>
+    case "alumnos":
+      ViewData["Title"] = "Altas, bajas y cambios";
+      ViewData["header"] = "Altas, bajas y cambios / Alumnos";
+        <content>
+            <br> <!-- Se separa un poco el contenido del navBar -->
+
+            <!-- Label superior "ALUMNOS" -->
+            <h1 style="border-bottom: solid 4px black; text-align: center; padding-bottom: 4px;">Alumnos</h1>
+
+            <br> <!-- Salto de linea entre el label y los botones -->
+
+            <div class="row">
+                <a type="button" href='/Dashboard/AltasBajasCambios?accion=alumnos_altas&username=@ViewData["username"]' class="btn btn-outline-success btn-block btn-lg">ALTAS</a>
+            </div>
+            <br> <!-- Salto de linea entre los botones -->
+            <div class="row">
+                <a type="button" href='/Dashboard/AltasBajasCambios?accion=alumnos_cambios&username=@ViewData["username"]' class="btn btn-outline-primary btn-block btn-lg">CAMBIOS</a>
+            </div>
+            <br> <!-- Salto de linea entre los botones -->
+            <div class="row">
+                <a type="button" href='/Dashboard/AltasBajasCambios?accion=alumnos_bajas&username=@ViewData["username"]' class="btn btn-outline-danger btn-block btn-lg">BAJAS</a>
+            </div>
+
+        </content>
+        break;
+    case "limpieza":
+      ViewData["Title"] = "Altas, bajas y cambios";
+      ViewData["header"] = "Altas, bajas y cambios / Limpieza";
+        <content>
+            <br> <!-- Se separa un poco el contenido del navBar -->
+
+            <!-- Label superior "ALUMNOS" -->
+            <h1 style="border-bottom: solid 4px black; text-align: center; padding-bottom: 4px;">Personal de Limpieza</h1>
+
+            <br> <!-- Salto de linea entre el label y los botones -->
+
+            <div class="row">
+                <a type="button" href='/Dashboard/AltasBajasCambios?accion=limpieza_altas&username=@ViewData["username"]' class="btn btn-outline-success btn-block btn-lg">ALTAS</a>
+            </div>
+            <br> <!-- Salto de linea entre los botones -->
+            <div class="row">
+                <a type="button" href='/Dashboard/AltasBajasCambios?accion=limpieza_altas&username=@ViewData["username"]' class="btn btn-outline-primary btn-block btn-lg">CAMBIOS</a>
+            </div>
+            <br> <!-- Salto de linea entre los botones -->
+            <div class="row">
+                <a type="button" href='/Dashboard/AltasBajasCambios?accion=limpieza_altas&username=@ViewData["username"]' class="btn btn-outline-danger btn-block btn-lg">BAJAS</a>
+            </div>
+
+        </content>
+        break;
+    case "personal":
+      ViewData["Title"] = "Altas, bajas y cambios";
+      ViewData["header"] = "Altas, bajas y cambios / Personal administrativo";
+        <content>
+            <br> <!-- Se separa un poco el contenido del navBar -->
+
+            <!-- Label superior "Personal administrativo" -->
+            <h1 style="border-bottom: solid 4px black; text-align: center; padding-bottom: 4px;">Personal administrativo</h1>
+
+            <br> <!-- Salto de linea entre el label y los botones -->
+
+            <div class="row">
+                <a type="button" href='/Dashboard/AltasBajasCambios?accion=personal_altas&username=@ViewData["username"]' class="btn btn-outline-success btn-block btn-lg">ALTAS</a>
+            </div>
+            <br> <!-- Salto de linea entre los botones -->
+            <div class="row">
+                <a type="button" href='/Dashboard/AltasBajasCambios?accion=personal_altas&username=@ViewData["username"]' class="btn btn-outline-primary btn-block btn-lg">CAMBIOS</a>
+            </div>
+            <br> <!-- Salto de linea entre los botones -->
+            <div class="row">
+                <a type="button" href='/Dashboard/AltasBajasCambios?accion=personal_altas&username=@ViewData["username"]' class="btn btn-outline-danger btn-block btn-lg">BAJAS</a>
+            </div>
+
+        </content>
+        break;
+        
+        
+    case "alumnos_cambios":
+      ViewData["Title"] = "Altas, bajas y cambios";
+      ViewData["header"] = "Altas, bajas y cambios / Alumnos / Cambios";
+        <content>
         <br> <!-- Se separa un poco el contenido del navBar -->
 
-        <label>
-          En esta pagina puedes dar de alta a un docente en la base de datos
-        </label>
+        <h1 style="border-bottom: solid 4px black; text-align: center; padding-bottom: 4px;">Cambio de datos de Alumnos</h1>
+        <br>
         <!-- La etiqueta content contiene al formulario en si y un label que describe el funcionamiento del formulario. -->
 
         <form>
           <!-- Dentro de la etiqueta form nos encontramos con los campos correspondientes que necesitan ser llenados. -->
 
-          <!-- Nombre del docente -->
           <div class="row">
             <div class="col">
-              <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar Nombre" name="nombre">
+              <!-- Nombre del alumno -->
+              <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar el nombre del alumno" name="nombre">
             </div>
             <div class="col">
-              <!-- Apellido paterno del docente -->
-              <input type="text" class="form-control" id="paterno_maestro" placeholder="Ingresar Apellido Paterno" name="paterno">
-            </div>
-            <div class="col">
-              <!-- Apellido materno del docente -->
-              <input type="text" class="form-control" id="materno_maestro" placeholder="Ingresar Apellido Materno" name="materno">
+              <!-- ID del alumno -->
+              <input type="text" class="form-control" id="id_maestro" placeholder="Ingresar id del alumno" name="id">
             </div>
           </div>
 
@@ -38,12 +108,8 @@
 
           <div class="row">
             <div class="col">
-              <!-- Este boton reinicia los campos a su valor default -->
-              <button type="reset" class="btn btn-danger btn-block">Cancelar</button>
-            </div>
-            <div class="col">
-              <!-- Este boton agrega elementos a la lista inferior -->
-              <button type="submit" class="btn btn-success btn-block">Agregar</button>
+              <!-- Este boton da de baja a un alumno de la base de datos -->
+              <button type="submit" class="btn btn-primary btn-block">Buscar alumno</button>
             </div>
           </div>
 
@@ -52,50 +118,253 @@
 
       <br><!-- Espacio entre campos del formulario -->
 
-     <a>Lista de docentes registrados en la base de datos.</a>
-     <div class="list-group">
-       <!-- Esta lista muestra todos los elementos que se daran de alta en la base de datos -->
-       <a href="#" class="list-group-item list-group-item-action bg-dark text-light border-white">Docente 1: Nombre Apellido Paterno Apellido Materno</a>
-       <a href="#" class="list-group-item list-group-item-action bg-dark text-light border-white">Docente 2: Nombre Apellido Paterno Apellido Materno</a>
-       <a href="#" class="list-group-item list-group-item-action bg-dark text-light border-white">Docente 3: Nombre Apellido Paterno Apellido Materno</a>
-       <a href="#" class="list-group-item list-group-item-action bg-dark text-light border-white">Docente 4: Nombre Apellido Paterno Apellido Materno</a>
-     </div>
+      <h4 style="text-align: center;">Lista de alumnos registrados en la base de datos.</h4>
 
-     <br><!-- Espacio entre la lista de docentes a agregar y los botones de altas -->
+      <div id="accordion">
 
-     <div class="row">
-       <div class="col">
-         <!-- Este botn descata una alta seleccionada de la lista de elementos -->
-         <button type="submit" class="btn btn-warning btn-block">Descartar Alta</button>
+       <div class="card">
+         <div class="card-header">
+           <a class="card-link btn btn-block" data-toggle="collapse" href="#collapseOne">
+             Alumno 1: Nombres Apellido_paterno Apellido_materno
+             <span class="badge badge-primary badge-pill badge-info">ID: 0</span>
+           </a>
+         </div>
+         <div id="collapseOne" class="collapse" data-parent="#accordion">
+           <div class="card-body">
+
+             <h5 style="text-align: center;">Cambio de datos</h5>
+
+             <form>
+               <div class="row">
+                 <div class="col">
+                   <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar Nombre" name="nombre">
+                 </div>
+                 <div class="col">
+                   <!-- Apellido paterno del alumno -->
+                   <input type="text" class="form-control" id="paterno_maestro" placeholder="Ingresar Apellido Paterno" name="paterno">
+                 </div>
+                 <div class="col">
+                   <!-- Apellido materno del alumno -->
+                   <input type="text" class="form-control" id="materno_maestro" placeholder="Ingresar Apellido Materno" name="materno">
+                 </div>
+               </div>
+
+               <br>
+
+               <div class="row">
+                 <div class="col">
+                   <div class="custom-file">
+                     <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+                     <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                   </div>
+                 </div>
+                 <div class="col">
+                   <div class="form-group">
+                    <select class="form-control" id="sel1">
+                      <option>Acta de nacimiento</option>
+                      <option>CURP</option>
+                      <option>Constancia medica</option>
+                      <option>Identificación oficial del padre o tutor</option>
+                    </select>
+                   </div>
+                 </div>
+               </div>
+
+               <br>
+
+               <h5 style="text-align: center;">archivos cargados</h5>
+
+               <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <div class="row">
+                    <a class="btn col">
+                      Acta de nacimiento
+                    </a>
+                    <button type="button" class="col btn btn-outline-danger">Descartar archivo</button>
+                  </div>
+                </li>
+               </ul>
+
+             </form>
+           </div>
+         </div>
        </div>
-       <div class="col">
-         <!-- Este boton da de alta todos los objetos en la lista de elementos -->
-         <button type="submit" class="btn btn-primary btn-block">Realizar Altas</button>
+
+       <div class="card">
+         <div class="card-header">
+           <a class="card-link btn btn-block" data-toggle="collapse" href="#collapseTwo">
+             Alumno 2: Nombres Apellido_paterno Apellido_materno
+             <span class="badge badge-primary badge-pill badge-info">ID: 1</span>
+           </a>
+         </div>
+         <div id="collapseTwo" class="collapse" data-parent="#accordion">
+           <div class="card-body">
+
+             <h5 style="text-align: center;">Cambio de datos</h5>
+
+             <form>
+               <div class="row">
+                 <div class="col">
+                   <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar Nombre" name="nombre">
+                 </div>
+                 <div class="col">
+                   <!-- Apellido paterno del alumno -->
+                   <input type="text" class="form-control" id="paterno_maestro" placeholder="Ingresar Apellido Paterno" name="paterno">
+                 </div>
+                 <div class="col">
+                   <!-- Apellido materno del alumno -->
+                   <input type="text" class="form-control" id="materno_maestro" placeholder="Ingresar Apellido Materno" name="materno">
+                 </div>
+               </div>
+
+               <br>
+
+               <div class="row">
+                 <div class="col">
+                   <div class="custom-file">
+                     <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+                     <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                   </div>
+                 </div>
+                 <div class="col">
+                   <div class="form-group">
+                    <select class="form-control" id="sel1">
+                      <option>Acta de nacimiento</option>
+                      <option>CURP</option>
+                      <option>Constancia medica</option>
+                      <option>Identificación oficial del padre o tutor</option>
+                    </select>
+                   </div>
+                 </div>
+               </div>
+
+               <br>
+
+               <h5 style="text-align: center;">archivos cargados</h5>
+
+               <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <div class="row">
+                    <a class="btn col">
+                      Acta de nacimiento
+                    </a>
+                    <button type="button" class="col btn btn-outline-danger">Descartar archivo</button>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <a class="btn col">
+                      Comprobante de domicilio
+                    </a>
+                    <button type="button" class="col btn btn-outline-danger">Descartar archivo</button>
+                  </div>
+                </li>
+               </ul>
+
+             </form>
+           </div>
+         </div>
+       </div>
+
+       <div class="card">
+         <div class="card-header">
+           <a class="card-link btn btn-block" data-toggle="collapse" href="#collapseTree">
+             Alumno 3: Nombres Apellido_paterno Apellido_materno
+             <span class="badge badge-primary badge-pill badge-info">ID: 2</span>
+           </a>
+         </div>
+         <div id="collapseTree" class="collapse" data-parent="#accordion">
+           <div class="card-body">
+
+             <h5 style="text-align: center;">Cambio de datos</h5>
+
+             <form>
+               <div class="row">
+                 <div class="col">
+                   <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar Nombre" name="nombre">
+                 </div>
+                 <div class="col">
+                   <!-- Apellido paterno del alumno -->
+                   <input type="text" class="form-control" id="paterno_maestro" placeholder="Ingresar Apellido Paterno" name="paterno">
+                 </div>
+                 <div class="col">
+                   <!-- Apellido materno del alumno -->
+                   <input type="text" class="form-control" id="materno_maestro" placeholder="Ingresar Apellido Materno" name="materno">
+                 </div>
+               </div>
+
+               <br>
+
+               <div class="row">
+                 <div class="col">
+                   <div class="custom-file">
+                     <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+                     <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                   </div>
+                 </div>
+                 <div class="col">
+                   <div class="form-group">
+                    <select class="form-control" id="sel1">
+                      <option>Acta de nacimiento</option>
+                      <option>CURP</option>
+                      <option>Constancia medica</option>
+                      <option>Identificación oficial del padre o tutor</option>
+                    </select>
+                   </div>
+                 </div>
+               </div>
+
+               <br>
+
+               <h5 style="text-align: center;">archivos cargados</h5>
+
+               <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <div class="row">
+                    <a class="btn col">
+                      Identificación oficial del padre o tutor
+                    </a>
+                    <button type="button" class="col btn btn-outline-danger">Descartar archivo</button>
+                  </div>
+                </li>
+               </ul>
+
+             </form>
+           </div>
+         </div>
+       </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col">
+          <button type="reset" class="btn btn-danger btn-block">Cancelar</button>
+        </div>
+        <div class="col">
+          <button type="submit" class="btn btn-success btn-block">Realizar cambios</button>
+        </div>
       </div>
-     </div>
 
-     <br><!-- Espacio entre los botones de altas y el control de la paginacion -->
+      <br><!-- Espacio entre campos del formulario -->
 
-     <ul class="pagination justify-content-center">
-       <!-- Este es un control de pagniacion, cambia de pagina la lista de altas -->
-       <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
-       <li class="page-item active"><a class="page-link" href="#">1</a></li>
-       <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
-     </ul>
-
-    }
+      <ul class="pagination justify-content-center">
+        <!-- Control de paginacion de la lista -->
+        <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+      </ul>
+      </div>
         break;
-    case "dar_de_baja_un_maestro":
-    {
-      ViewData["Title"] = "Dar de baja un maestro";
-      ViewData["header"] = "Altas, bajas y cambios / Dar de baja un maestro";
-        <!-- Contenido del formulario del modulo de altas y vajas de maestros. -->
+    case "alumnos_bajas":
+      ViewData["Title"] = "Altas, bajas y cambios";
+      ViewData["header"] = "Altas, bajas y cambios / Alumnos / Bajas";
       <content>
         <br> <!-- Se separa un poco el contenido del navBar -->
 
-        <label>
-          Desde esta pagina se realizan bajas de docentes en la base de datos, ya sea por su ID o por su nombre.
-        </label>
+        <h1 style="border-bottom: solid 4px black; text-align: center; padding-bottom: 4px;">Baja de Alumnos</h1>
+        <br>
         <!-- La etiqueta content contiene al formulario en si y un label que describe el funcionamiento del formulario. -->
 
         <form>
@@ -103,12 +372,12 @@
 
           <div class="row">
             <div class="col">
-              <!-- Nombre del docente -->
-              <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar el nombre del docente" name="nombre">
+              <!-- Nombre del alumno -->
+              <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar el nombre del alumno" name="nombre">
             </div>
             <div class="col">
-              <!-- ID del docente -->
-              <input type="text" class="form-control" id="id_maestro" placeholder="Ingresar id del docente" name="id">
+              <!-- ID del alumno -->
+              <input type="text" class="form-control" id="id_maestro" placeholder="Ingresar id del alumno" name="id">
             </div>
           </div>
 
@@ -116,7 +385,7 @@
 
           <div class="row">
             <div class="col">
-              <!-- Este boton da de baja a un docente de la base de datos -->
+              <!-- Este boton da de baja a un alumno de la base de datos -->
               <button type="submit" class="btn btn-success btn-block">Dar de baja</button>
             </div>
             <div class="col">
@@ -130,31 +399,31 @@
 
       <br><!-- Espacio entre campos del formulario -->
 
-      <a>Lista de docentes registrados en la base de datos.</a>
+      <a>Lista de alumnos registrados en la base de datos.</a>
       <ul class="list-group">
-        <!-- Esta es una lista de los docentes que se enceuntran registrados en la base de datos con su respectivo ID -->
+        <!-- Esta es una lista de los alumnos que se enceuntran registrados en la base de datos con su respectivo ID -->
        <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-light border-white">
-         Maestro 1: Nombre Apellido Paterno Apellido Materno
+         Alumno 1: Nombre Apellido Paterno Apellido Materno
          <span class="badge badge-primary badge-pill badge-info">ID: 0</span>
        </li>
        <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-light border-white">
-         Maestro 2: Nombre Apellido Paterno Apellido Materno
+         Alumno 2: Nombre Apellido Paterno Apellido Materno
          <span class="badge badge-primary badge-pill badge-info">ID: 1</span>
        </li>
        <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-light border-white">
-         Maestro 3: Nombre Apellido Paterno Apellido Materno
+         Alumno 3: Nombre Apellido Paterno Apellido Materno
          <span class="badge badge-primary badge-pill badge-info">ID: 2</span>
        </li>
        <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-light border-white">
-         Maestro 4: Nombre Apellido Paterno Apellido Materno
+         Alumno 4: Nombre Apellido Paterno Apellido Materno
          <span class="badge badge-primary badge-pill badge-info">ID: 3</span>
        </li>
        <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-light border-white">
-         Maestro 5: Nombre Apellido Paterno Apellido Materno
+         Alumno 5: Nombre Apellido Paterno Apellido Materno
          <span class="badge badge-primary badge-pill badge-info">ID: 4</span>
        </li>
        <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-light border-white">
-         Maestro 6: Nombre Apellido Paterno Apellido Materno
+         Alumno 6: Nombre Apellido Paterno Apellido Materno
          <span class="badge badge-primary badge-pill badge-info">ID: 5</span>
        </li>
      </ul>
@@ -169,6 +438,711 @@
        <li class="page-item"><a class="page-link" href="#">3</a></li>
        <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
      </ul>
-    }
+        break;
+    case "alumnos_altas":
+      ViewData["Title"] = "Altas, bajas y cambios";
+      ViewData["header"] = "Altas, bajas y cambios / Alumnos / Altas";
+            <content>
+        <br> <!-- Se separa un poco el contenido del navBar -->
+
+        <h1 style="border-bottom: solid 4px black; text-align: center; padding-bottom: 4px;">Alta de Alumnos</h1>
+
+        <br>  <!-- Alto entre la etiqueta superior y el formulario -->
+
+        <!-- La etiqueta content contiene al formulario en si y un label que describe el funcionamiento del formulario. -->
+        <form>
+          <!-- Dentro de la etiqueta form nos encontramos con los campos correspondientes que necesitan ser llenados. -->
+
+          <h3 style="text-align: center;">Nombre completo del alumno</h3>
+
+          <br>
+
+          <!-- Nombre del alumno -->
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar Nombre" name="nombre">
+            </div>
+            <div class="col">
+              <!-- Apellido paterno del alumno -->
+              <input type="text" class="form-control" id="paterno_maestro" placeholder="Ingresar Apellido Paterno" name="paterno">
+            </div>
+            <div class="col">
+              <!-- Apellido materno del alumno -->
+              <input type="text" class="form-control" id="materno_maestro" placeholder="Ingresar Apellido Materno" name="materno">
+            </div>
+          </div>
+
+          <br><!-- Espacio entre campos del formulario -->
+
+          <h3 style="text-align: center;">Carga de papeleria</h3>
+
+          <br>
+
+          <div class="row input-group">
+            <div class="col input-group-prepend">
+              <span class="input-group-text" id="inputGroupFileAddon01">Acta de nacimiento</span>
+            </div>
+            <div class="col custom-file">
+              <input type="file" class="custom-file-input" id="inputGroupFile01"
+                aria-describedby="inputGroupFileAddon01">
+              <label class="custom-file-label" for="inputGroupFile01">Cargar archivo</label>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="row input-group">
+            <div class="col input-group-prepend">
+              <span class="input-group-text" id="inputGroupFileAddon01">CURP</span>
+            </div>
+            <div class="col custom-file">
+              <input type="file" class="custom-file-input" id="inputGroupFile01"
+                aria-describedby="inputGroupFileAddon01">
+              <label class="custom-file-label" for="inputGroupFile01">Cargar archivo</label>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="row input-group">
+            <div class="col input-group-prepend">
+              <span class="input-group-text" id="inputGroupFileAddon01">Constancia Medica</span>
+            </div>
+            <div class="col custom-file">
+              <input type="file" class="custom-file-input" id="inputGroupFile01"
+                aria-describedby="inputGroupFileAddon01">
+              <label class="custom-file-label" for="inputGroupFile01">Cargar archivo</label>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="row input-group">
+            <div class="col input-group-prepend">
+              <span class="input-group-text" id="inputGroupFileAddon01">Identificación oficial del padre de familia o tutor</span>
+            </div>
+            <div class="col custom-file">
+              <input type="file" class="custom-file-input" id="inputGroupFile01"
+                aria-describedby="inputGroupFileAddon01">
+              <label class="custom-file-label" for="inputGroupFile01">Cargar archivo</label>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="row input-group">
+            <div class="col input-group-prepend">
+              <span class="input-group-text" id="inputGroupFileAddon01">Comprobante de domicilio</span>
+            </div>
+            <div class="col custom-file">
+              <input type="file" class="custom-file-input" id="inputGroupFile01"
+                aria-describedby="inputGroupFileAddon01">
+              <label class="custom-file-label" for="inputGroupFile01">Cargar archivo</label>
+            </div>
+          </div>
+
+          
+
+          <br><!-- Espacio entre campos del formulario -->
+
+          <div class="row">
+            <div class="col">
+              <!-- Este boton reinicia los campos a su valor default -->
+              <button type="reset" class="btn btn-danger btn-block">Cancelar</button>
+            </div>
+            <div class="col">
+              <!-- Este boton agrega elementos a la lista inferior -->
+              <button type="submit" class="btn btn-success btn-block">Dar de alta</button>
+            </div>
+          </div>
+
+        </form>
+      </content>
+        break;
+        
+    case "limpieza_cambios":
+      ViewData["Title"] = "Altas, bajas y cambios";
+      ViewData["header"] = "Altas, bajas y cambios / Limpieza y mantenimiento / Cambios";
+      <content>
+        <br> <!-- Se separa un poco el contenido del navBar -->
+
+        <label>
+          Desde esta pagina se realizan cambios en los datos de empleados de limpieza en la base de datos.
+        </label>
+        <!-- La etiqueta content contiene al formulario en si y un label que describe el funcionamiento del formulario. -->
+
+        <form>
+          <!-- Dentro de la etiqueta form nos encontramos con los campos correspondientes que necesitan ser llenados. -->
+
+          <div class="row">
+            <div class="col">
+              <!-- Nombre del empleado -->
+              <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar el nombre del empleado" name="nombre">
+            </div>
+            <div class="col">
+              <!-- ID del empleado -->
+              <input type="text" class="form-control" id="id_maestro" placeholder="Ingresar id del empleado" name="id">
+            </div>
+          </div>
+
+          <br><!-- Espacio entre campos del formulario -->
+
+          <div class="row">
+            <div class="col">
+              <!-- Este boton da de baja a un alumno de la base de datos -->
+              <button type="submit" class="btn btn-primary btn-block">Buscar empleado</button>
+            </div>
+          </div>
+
+        </form>
+      </content>
+
+      <br><!-- Espacio entre campos del formulario -->
+
+      <h4 style="text-align: center;">Lista de empleados de limpieza registrados en la base de datos.</h4>
+
+      <div id="accordion">
+
+       <div class="card">
+         <div class="card-header">
+           <a class="card-link btn btn-block" data-toggle="collapse" href="#collapseOne">
+             Empleado 1: Nombres Apellido_paterno Apellido_materno
+             <span class="badge badge-primary badge-pill badge-info">ID: 0</span>
+           </a>
+         </div>
+         <div id="collapseOne" class="collapse" data-parent="#accordion">
+           <div class="card-body">
+
+             <h5 style="text-align: center;">Cambio de datos</h5>
+
+             <form>
+               <div class="row">
+                 <div class="col">
+                   <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar Nombre" name="nombre">
+                 </div>
+                 <div class="col">
+                   <!-- Apellido paterno del empleado -->
+                   <input type="text" class="form-control" id="paterno_maestro" placeholder="Ingresar Apellido Paterno" name="paterno">
+                 </div>
+                 <div class="col">
+                   <!-- Apellido materno del empleado -->
+                   <input type="text" class="form-control" id="materno_maestro" placeholder="Ingresar Apellido Materno" name="materno">
+                 </div>
+               </div>
+             </form>
+           </div>
+         </div>
+       </div>
+
+       <div class="card">
+         <div class="card-header">
+           <a class="card-link btn btn-block" data-toggle="collapse" href="#collapseTwo">
+             Empleado 2: Nombres Apellido_paterno Apellido_materno
+             <span class="badge badge-primary badge-pill badge-info">ID: 1</span>
+           </a>
+         </div>
+         <div id="collapseTwo" class="collapse" data-parent="#accordion">
+           <div class="card-body">
+
+             <h5 style="text-align: center;">Cambio de datos</h5>
+
+             <form>
+               <div class="row">
+                 <div class="col">
+                   <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar Nombre" name="nombre">
+                 </div>
+                 <div class="col">
+                   <!-- Apellido paterno del alumno -->
+                   <input type="text" class="form-control" id="paterno_maestro" placeholder="Ingresar Apellido Paterno" name="paterno">
+                 </div>
+                 <div class="col">
+                   <!-- Apellido materno del alumno -->
+                   <input type="text" class="form-control" id="materno_maestro" placeholder="Ingresar Apellido Materno" name="materno">
+                 </div>
+               </div>
+             </form>
+           </div>
+         </div>
+       </div>
+
+       <div class="card">
+         <div class="card-header">
+           <a class="card-link btn btn-block" data-toggle="collapse" href="#collapseTree">
+             Empleado 3: Nombres Apellido_paterno Apellido_materno
+             <span class="badge badge-primary badge-pill badge-info">ID: 2</span>
+           </a>
+         </div>
+         <div id="collapseTree" class="collapse" data-parent="#accordion">
+           <div class="card-body">
+
+             <h5 style="text-align: center;">Cambio de datos</h5>
+
+             <form>
+               <div class="row">
+                 <div class="col">
+                   <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar Nombre" name="nombre">
+                 </div>
+                 <div class="col">
+                   <!-- Apellido paterno del alumno -->
+                   <input type="text" class="form-control" id="paterno_maestro" placeholder="Ingresar Apellido Paterno" name="paterno">
+                 </div>
+                 <div class="col">
+                   <!-- Apellido materno del alumno -->
+                   <input type="text" class="form-control" id="materno_maestro" placeholder="Ingresar Apellido Materno" name="materno">
+                 </div>
+               </div>
+             </form>
+           </div>
+         </div>
+       </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col">
+          <button type="reset" class="btn btn-danger btn-block">Cancelar</button>
+        </div>
+        <div class="col">
+          <button type="submit" class="btn btn-success btn-block">Realizar cambios</button>
+        </div>
+      </div>
+
+      <br><!-- Espacio entre campos del formulario -->
+
+      <ul class="pagination justify-content-center">
+        <!-- Control de paginacion de la lista -->
+        <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+      </ul>
+      </div>
+        break;
+    case "limpieza_bajas":
+      ViewData["Title"] = "Altas, bajas y cambios";
+      ViewData["header"] = "Altas, bajas y cambios / Limpieza y mantenimiento / Bajas";
+            <content>
+        <br> <!-- Se separa un poco el contenido del navBar -->
+
+        <h1 style="border-bottom: solid 4px black; text-align: center; padding-bottom: 4px;">Bajas de Personal de limpieza</h1>
+        <br>
+        <!-- La etiqueta content contiene al formulario en si y un label que describe el funcionamiento del formulario. -->
+
+        <form>
+          <!-- Dentro de la etiqueta form nos encontramos con los campos correspondientes que necesitan ser llenados. -->
+
+          <div class="row">
+            <div class="col">
+              <!-- Nombre del personal -->
+              <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar el nombre del empleado" name="nombre">
+            </div>
+            <div class="col">
+              <!-- ID del personal -->
+              <input type="text" class="form-control" id="id_maestro" placeholder="Ingresar id del empleado" name="id">
+            </div>
+          </div>
+
+          <br><!-- Espacio entre campos del formulario -->
+
+          <div class="row">
+            <div class="col">
+              <!-- Este boton da de baja a un empleado de la base de datos -->
+              <button type="submit" class="btn btn-success btn-block">Dar de baja</button>
+            </div>
+            <div class="col">
+              <!-- Este boton reinicia los campos a su valor default -->
+              <button type="reset" class="btn btn-danger btn-block">Cancelar</button>
+            </div>
+          </div>
+
+        </form>
+      </content>
+
+      <br><!-- Espacio entre campos del formulario -->
+
+      <a>Lista de empleados de limpieza registrados en la base de datos.</a>
+      <ul class="list-group">
+        <!-- Esta es una lista de los alumnos que se enceuntran registrados en la base de datos con su respectivo ID -->
+       <li class="list-group-item d-flex justify-content-between align-items-center">
+         Empleado 1: Nombre Apellido Paterno Apellido Materno
+         <span class="badge badge-primary badge-pill badge-info">ID: 0</span>
+       </li>
+       <li class="list-group-item d-flex justify-content-between align-items-center">
+         Empleado 2: Nombre Apellido Paterno Apellido Materno
+         <span class="badge badge-primary badge-pill badge-info">ID: 1</span>
+       </li>
+       <li class="list-group-item d-flex justify-content-between align-items-center">
+         Empleado 3: Nombre Apellido Paterno Apellido Materno
+         <span class="badge badge-primary badge-pill badge-info">ID: 2</span>
+       </li>
+       <li class="list-group-item d-flex justify-content-between align-items-center">
+         Empleado 4: Nombre Apellido Paterno Apellido Materno
+         <span class="badge badge-primary badge-pill badge-info">ID: 3</span>
+       </li>
+       <li class="list-group-item d-flex justify-content-between align-items-center">
+         Empleado 5: Nombre Apellido Paterno Apellido Materno
+         <span class="badge badge-primary badge-pill badge-info">ID: 4</span>
+       </li>
+       <li class="list-group-item d-flex justify-content-between align-items-center">
+         Empleado 6: Nombre Apellido Paterno Apellido Materno
+         <span class="badge badge-primary badge-pill badge-info">ID: 5</span>
+       </li>
+     </ul>
+
+      <br><!-- Espacio entre campos del formulario -->
+
+      <ul class="pagination justify-content-center">
+        <!-- Control de paginacion de la lista -->
+        <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+      </ul>
+      break;
+    case "limpieza_altas":
+      ViewData["Title"] = "Altas, bajas y cambios";
+      ViewData["header"] = "Altas, bajas y cambios / Limpieza y mantenimiento / Altas";
+      <content>
+        <br> <!-- Se separa un poco el contenido del navBar -->
+
+        <h1 style="border-bottom: solid 4px black; text-align: center; padding-bottom: 4px;">Alta de personal de Limpieza</h1>
+
+        <br>  <!-- Alto entre la etiqueta superior y el formulario -->
+
+        <!-- La etiqueta content contiene al formulario en si y un label que describe el funcionamiento del formulario. -->
+        <form>
+          <!-- Dentro de la etiqueta form nos encontramos con los campos correspondientes que necesitan ser llenados. -->
+
+          <h3 style="text-align: center;">Nombre completo del empleado</h3>
+
+          <br>
+
+          <!-- Nombre del empleado -->
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar Nombre" name="nombre">
+            </div>
+            <div class="col">
+              <!-- Apellido paterno del empleado -->
+              <input type="text" class="form-control" id="paterno_maestro" placeholder="Ingresar Apellido Paterno" name="paterno">
+            </div>
+            <div class="col">
+              <!-- Apellido materno del empleado -->
+              <input type="text" class="form-control" id="materno_maestro" placeholder="Ingresar Apellido Materno" name="materno">
+            </div>
+          </div>
+
+          <br><!-- Espacio entre campos del formulario -->
+
+          <div class="row">
+            <div class="col">
+              <!-- Este boton reinicia los campos a su valor default -->
+              <button type="reset" class="btn btn-danger btn-block">Cancelar</button>
+            </div>
+            <div class="col">
+              <!-- Este boton agrega elementos a la lista inferior -->
+              <button type="submit" class="btn btn-success btn-block">Dar de alta</button>
+            </div>
+          </div>
+
+        </form>
+      </content>
+        break;
+        
+    case "personal_cambios":
+      ViewData["Title"] = "Altas, bajas y cambios";
+      ViewData["header"] = "Altas, bajas y cambios / Personal administrativo / Cambios";
+            <content>
+        <br> <!-- Se separa un poco el contenido del navBar -->
+
+        <h1 style="border-bottom: solid 4px black; text-align: center; padding-bottom: 4px;">Cambio de datos del personal administrativo</h1>
+
+        <br>  <!-- Alto entre la etiqueta superior y el formulario -->
+
+        <!-- La etiqueta content contiene al formulario en si y un label que describe el funcionamiento del formulario. -->
+
+        <form>
+          <!-- Dentro de la etiqueta form nos encontramos con los campos correspondientes que necesitan ser llenados. -->
+
+          <div class="row">
+            <div class="col">
+              <!-- Nombre del empleado -->
+              <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar el nombre del empleado" name="nombre">
+            </div>
+            <div class="col">
+              <!-- ID del empleado -->
+              <input type="text" class="form-control" id="id_maestro" placeholder="Ingresar id del empleado" name="id">
+            </div>
+          </div>
+
+          <br><!-- Espacio entre campos del formulario -->
+
+          <div class="row">
+            <div class="col">
+              <!-- Este boton da de baja a un alumno de la base de datos -->
+              <button type="submit" class="btn btn-primary btn-block">Buscar empleado</button>
+            </div>
+          </div>
+
+        </form>
+      </content>
+
+      <br><!-- Espacio entre campos del formulario -->
+
+      <h4 style="text-align: center;">Lista de empleados de limpieza registrados en la base de datos.</h4>
+
+      <div id="accordion">
+
+       <div class="card">
+         <div class="card-header">
+           <a class="card-link btn btn-block" data-toggle="collapse" href="#collapseOne">
+             Empleado 1: Nombres Apellido_paterno Apellido_materno
+             <span class="badge badge-primary badge-pill badge-info">ID: 0</span>
+           </a>
+         </div>
+         <div id="collapseOne" class="collapse" data-parent="#accordion">
+           <div class="card-body">
+
+             <h5 style="text-align: center;">Cambio de datos</h5>
+
+             <form>
+               <div class="row">
+                 <div class="col">
+                   <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar Nombre" name="nombre">
+                 </div>
+                 <div class="col">
+                   <!-- Apellido paterno del empleado -->
+                   <input type="text" class="form-control" id="paterno_maestro" placeholder="Ingresar Apellido Paterno" name="paterno">
+                 </div>
+                 <div class="col">
+                   <!-- Apellido materno del empleado -->
+                   <input type="text" class="form-control" id="materno_maestro" placeholder="Ingresar Apellido Materno" name="materno">
+                 </div>
+               </div>
+             </form>
+           </div>
+         </div>
+       </div>
+
+       <div class="card">
+         <div class="card-header">
+           <a class="card-link btn btn-block" data-toggle="collapse" href="#collapseTwo">
+             Empleado 2: Nombres Apellido_paterno Apellido_materno
+             <span class="badge badge-primary badge-pill badge-info">ID: 1</span>
+           </a>
+         </div>
+         <div id="collapseTwo" class="collapse" data-parent="#accordion">
+           <div class="card-body">
+
+             <h5 style="text-align: center;">Cambio de datos</h5>
+
+             <form>
+               <div class="row">
+                 <div class="col">
+                   <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar Nombre" name="nombre">
+                 </div>
+                 <div class="col">
+                   <!-- Apellido paterno del alumno -->
+                   <input type="text" class="form-control" id="paterno_maestro" placeholder="Ingresar Apellido Paterno" name="paterno">
+                 </div>
+                 <div class="col">
+                   <!-- Apellido materno del alumno -->
+                   <input type="text" class="form-control" id="materno_maestro" placeholder="Ingresar Apellido Materno" name="materno">
+                 </div>
+               </div>
+             </form>
+           </div>
+         </div>
+       </div>
+
+       <div class="card">
+         <div class="card-header">
+           <a class="card-link btn btn-block" data-toggle="collapse" href="#collapseTree">
+             Empleado 3: Nombres Apellido_paterno Apellido_materno
+             <span class="badge badge-primary badge-pill badge-info">ID: 2</span>
+           </a>
+         </div>
+         <div id="collapseTree" class="collapse" data-parent="#accordion">
+           <div class="card-body">
+
+             <h5 style="text-align: center;">Cambio de datos</h5>
+
+             <form>
+               <div class="row">
+                 <div class="col">
+                   <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar Nombre" name="nombre">
+                 </div>
+                 <div class="col">
+                   <!-- Apellido paterno del alumno -->
+                   <input type="text" class="form-control" id="paterno_maestro" placeholder="Ingresar Apellido Paterno" name="paterno">
+                 </div>
+                 <div class="col">
+                   <!-- Apellido materno del alumno -->
+                   <input type="text" class="form-control" id="materno_maestro" placeholder="Ingresar Apellido Materno" name="materno">
+                 </div>
+               </div>
+             </form>
+           </div>
+         </div>
+       </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col">
+          <button type="reset" class="btn btn-danger btn-block">Cancelar</button>
+        </div>
+        <div class="col">
+          <button type="submit" class="btn btn-success btn-block">Realizar cambios</button>
+        </div>
+      </div>
+
+      <br><!-- Espacio entre campos del formulario -->
+
+      <ul class="pagination justify-content-center">
+        <!-- Control de paginacion de la lista -->
+       <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+       <li class="page-item active"><a class="page-link" href="#">1</a></li>
+       <li class="page-item"><a class="page-link" href="#">2</a></li>
+       <li class="page-item"><a class="page-link" href="#">3</a></li>
+       <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+     </ul>
+
+    </div>
+        break;
+    case "personal_bajas":
+      ViewData["Title"] = "Altas, bajas y cambios";
+      ViewData["header"] = "Altas, bajas y cambios / Personal administrativo / Bajas";
+            <content>
+        <br> <!-- Se separa un poco el contenido del navBar -->
+
+        <h1 style="border-bottom: solid 4px black; text-align: center; padding-bottom: 4px;">Bajas del personal administrativos</h1>
+
+        <br>  <!-- Alto entre la etiqueta superior y el formulario -->
+
+        <!-- La etiqueta content contiene al formulario en si y un label que describe el funcionamiento del formulario. -->
+
+        <form>
+          <!-- Dentro de la etiqueta form nos encontramos con los campos correspondientes que necesitan ser llenados. -->
+
+          <div class="row">
+            <div class="col">
+              <!-- Nombre del personal -->
+              <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar el nombre del empleado" name="nombre">
+            </div>
+            <div class="col">
+              <!-- ID del personal -->
+              <input type="text" class="form-control" id="id_maestro" placeholder="Ingresar id del empleado" name="id">
+            </div>
+          </div>
+
+          <br><!-- Espacio entre campos del formulario -->
+
+          <div class="row">
+            <div class="col">
+              <!-- Este boton da de baja a un empleado de la base de datos -->
+              <button type="submit" class="btn btn-success btn-block">Dar de baja</button>
+            </div>
+            <div class="col">
+              <!-- Este boton reinicia los campos a su valor default -->
+              <button type="reset" class="btn btn-danger btn-block">Cancelar</button>
+            </div>
+          </div>
+
+        </form>
+      </content>
+
+      <br><!-- Espacio entre campos del formulario -->
+
+      <a>Lista de empleados de limpieza registrados en la base de datos.</a>
+      <ul class="list-group">
+        <!-- Esta es una lista de los alumnos que se enceuntran registrados en la base de datos con su respectivo ID -->
+       <li class="list-group-item d-flex justify-content-between align-items-center">
+         Empleado 1: Nombre Apellido Paterno Apellido Materno
+         <span class="badge badge-primary badge-pill badge-info">ID: 0</span>
+       </li>
+       <li class="list-group-item d-flex justify-content-between align-items-center">
+         Empleado 2: Nombre Apellido Paterno Apellido Materno
+         <span class="badge badge-primary badge-pill badge-info">ID: 1</span>
+       </li>
+       <li class="list-group-item d-flex justify-content-between align-items-center">
+         Empleado 3: Nombre Apellido Paterno Apellido Materno
+         <span class="badge badge-primary badge-pill badge-info">ID: 2</span>
+       </li>
+       <li class="list-group-item d-flex justify-content-between align-items-center">
+         Empleado 4: Nombre Apellido Paterno Apellido Materno
+         <span class="badge badge-primary badge-pill badge-info">ID: 3</span>
+       </li>
+       <li class="list-group-item d-flex justify-content-between align-items-center">
+         Empleado 5: Nombre Apellido Paterno Apellido Materno
+         <span class="badge badge-primary badge-pill badge-info">ID: 4</span>
+       </li>
+       <li class="list-group-item d-flex justify-content-between align-items-center">
+         Empleado 6: Nombre Apellido Paterno Apellido Materno
+         <span class="badge badge-primary badge-pill badge-info">ID: 5</span>
+       </li>
+     </ul>
+
+      <br><!-- Espacio entre campos del formulario -->
+
+      <ul class="pagination justify-content-center">
+        <!-- Control de paginacion de la lista -->
+       <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+       <li class="page-item active"><a class="page-link" href="#">1</a></li>
+       <li class="page-item"><a class="page-link" href="#">2</a></li>
+       <li class="page-item"><a class="page-link" href="#">3</a></li>
+       <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+     </ul>
+        break;
+    case "personal_altas":
+      ViewData["Title"] = "Altas, bajas y cambios";
+      ViewData["header"] = "Altas, bajas y cambios / Personal administrativo / Altas";
+      <content>
+        <br> <!-- Se separa un poco el contenido del navBar -->
+
+        <h1 style="border-bottom: solid 4px black; text-align: center; padding-bottom: 4px;">Alta de personal administrativo</h1>
+
+        <br>  <!-- Alto entre la etiqueta superior y el formulario -->
+
+        <!-- La etiqueta content contiene al formulario en si y un label que describe el funcionamiento del formulario. -->
+        <form>
+          <!-- Dentro de la etiqueta form nos encontramos con los campos correspondientes que necesitan ser llenados. -->
+
+          <h3 style="text-align: center;">Nombre completo del empleado</h3>
+
+          <br>
+
+          <!-- Nombre del empleado -->
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" id="nombre_maestro" placeholder="Ingresar Nombre" name="nombre">
+            </div>
+            <div class="col">
+              <!-- Apellido paterno del empleado -->
+              <input type="text" class="form-control" id="paterno_maestro" placeholder="Ingresar Apellido Paterno" name="paterno">
+            </div>
+            <div class="col">
+              <!-- Apellido materno del empleado -->
+              <input type="text" class="form-control" id="materno_maestro" placeholder="Ingresar Apellido Materno" name="materno">
+            </div>
+          </div>
+
+          <br><!-- Espacio entre campos del formulario -->
+
+          <div class="row">
+            <div class="col">
+              <!-- Este boton reinicia los campos a su valor default -->
+              <button type="reset" class="btn btn-danger btn-block">Cancelar</button>
+            </div>
+            <div class="col">
+              <!-- Este boton agrega elementos a la lista inferior -->
+              <button type="submit" class="btn btn-success btn-block">Dar de alta</button>
+            </div>
+          </div>
+
+        </form>
+      </content>
         break;
 }

@@ -12,6 +12,7 @@ namespace PrototipoAPS.Pages.Dashboard
 
         public IActionResult OnPost(string username, string password)
         {
+            if (username == null || password == null) return RedirectToPage("/login");
             ViewData["username"] = username;
             return Page();
         }

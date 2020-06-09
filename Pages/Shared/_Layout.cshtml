@@ -61,11 +61,11 @@
                     <div class="collapse" id="altas_y_bajas_maestros">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a href='/Dashboard/AltasBajasCambios?accion=registrar_maestro&username=@ViewData["username"]' 
+                                <a href='/Dashboard/AltasBajasCambiosMaestros?accion=registrar_maestro&username=@ViewData["username"]' 
                                    class="nav-link subelemento">Registrar maestro</a>
                             </li>
                             <li class="nav-item">
-                                <a href='/Dashboard/AltasBajasCambios?accion=dar_de_baja_un_maestro&username=@ViewData["username"]' 
+                                <a href='/Dashboard/AltasBajasCambiosMaestros?accion=dar_de_baja_un_maestro&username=@ViewData["username"]' 
                                    class="nav-link subelemento">Dar de baja un maestro</a>
                             </li>
                         </ul>
@@ -96,13 +96,13 @@
                     <div class="collapse" id="altas_bajas_cambios">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a href="#" class="nav-link subelemento">Alumnos</a>
+                                <a href='/Dashboard/AltasBajasCambios?accion=alumnos&username=@ViewData["username"]' class="nav-link subelemento">Alumnos</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link subelemento">Personal administrativo</a>
+                                <a href='/Dashboard/AltasBajasCambios?accion=personal&username=@ViewData["username"]' class="nav-link subelemento">Personal administrativo</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link subelemento">Limpieza</a>
+                                <a href='/Dashboard/AltasBajasCambios?accion=limpieza&username=@ViewData["username"]' class="nav-link subelemento">Limpieza</a>
                             </li>
                         </ul>
                     </div>
@@ -114,15 +114,12 @@
                     <div class="collapse" id="calificaciones">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a href="#" class="nav-link subelemento">Promedios</a>
+                                <a href='/Dashboard/Calificaciones?accion=promedios&username=@ViewData["username"]' class="nav-link subelemento">Promedios</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link subelemento">Kárdex</a>
+                                <a href='/Dashboard/Calificaciones?accion=kardex&username=@ViewData["username"]' class="nav-link subelemento">Kárdex</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link subelemento">Kárdex</a>
-                            </li>
-                            
+
                         </ul>
                     </div>
                 </li>
@@ -133,10 +130,10 @@
                     <div class="collapse" id="grupos">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a href="#" class="nav-link subelemento">Histórico</a>
+                                <a href='/Dashboard/Grupos?accion=historico&username=@ViewData["username"]' class="nav-link subelemento">Histórico</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link subelemento">Listas</a>
+                                <a href='/Dashboard/Grupos?accion=listas&username=@ViewData["username"]' class="nav-link subelemento">Listas</a>
                             </li>
                         </ul>
                     </div>
@@ -144,7 +141,7 @@
                 
                 <!-- Incidencias -->
                 <li class="nav-item">
-                    <a class="nav-link encabezado-barra-lateral-menus" href="#">Incidencias</a>
+                    <a class="nav-link encabezado-barra-lateral-menus" href='/Dashboard/Incidencias?username=@ViewData["username"]'>Incidencias</a>
                 </li>
                 
                 
@@ -154,10 +151,10 @@
                     <div class="collapse" id="cuotas">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a href="#" class="nav-link subelemento">Consultar adeudo</a>
+                                <a href='/Dashboard/Pagos?accion=consultar&username=@ViewData["username"]' class="nav-link subelemento">Consultar adeudo</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link subelemento">Pagar</a>
+                                <a href='/Dashboard/Pagos?accion=pagar&username=@ViewData["username"]' class="nav-link subelemento">Pagar</a>
                             </li>
                         </ul>
                     </div>
